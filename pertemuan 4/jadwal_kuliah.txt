@@ -1,0 +1,9 @@
+Selasa, 08:00: PBO (3)sks
+Selasa, 13:00: AIK (2)sks
+Selasa, 14:40: Arsitektur Organisasi Komputer (3)sks
+Rabu, 08:00: Sistem Informasi (3)sks
+Rabu, 13:00: Kalkulus (2)sks
+Jumat, 08:00: Komunikasi Data (2)sks
+Jumat, 10:00: Statistik Probilitas (2)sks
+Jumat, 13:00: Struktur Data (3)sks
+
