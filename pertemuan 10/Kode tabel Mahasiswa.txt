@@ -1,0 +1,78 @@
+Microsoft Windows [Version 10.0.22621.2861]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 57
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use campus
+Database changed
+MariaDB [campus]> create table mahasiswa(
+    -> id int primary key auto_increment,
+    -> nim varchar(10)unique not null,
+    -> nama varchar(100) not null,
+    -> jk char(1) not null,
+    -> prodi varchar(10) not null)
+    -> ;
+Query OK, 0 rows affected (0.077 sec)
+
+MariaDB [campus]> show tables;
++------------------+
+| Tables_in_campus |
++------------------+
+| mahasiswa        |
+| matakuliah       |
++------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [campus]> describe mahasiswa;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nim   | varchar(10)  | NO   | UNI | NULL    |                |
+| nama  | varchar(100) | NO   |     | NULL    |                |
+| jk    | char(1)      | NO   |     | NULL    |                |
+| prodi | varchar(10)  | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+5 rows in set (0.060 sec)
+
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511074','Rafi Zaidan Rabbani','L','TIF')
+    -> ;
+Query OK, 1 row affected (0.041 sec)
+
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511055','M Ruslan ','L','TIF');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511055','M Rusli ','L','IND');
+ERROR 1062 (23000): Duplicate entry '220511055' for key 'nim'
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511025','M Rusli ','L','IND');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511022','Ruri ','P','PET');
+Query OK, 1 row affected (0.041 sec)
+
+MariaDB [campus]> insert into mahasiswa(nim,nama,jk,prodi)values('220511011','Putra ','L','PET');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [campus]> select * from mahasiswa;
++----+-----------+---------------------+----+-------+
+| id | nim       | nama                | jk | prodi |
++----+-----------+---------------------+----+-------+
+|  1 | 220511074 | Rafi Zaidan Rabbani | L  | TIF   |
+|  2 | 220511055 | M Ruslan            | L  | TIF   |
+|  4 | 220511025 | M Rusli             | L  | IND   |
+|  5 | 220511022 | Ruri                | P  | PET   |
+|  6 | 220511011 | Putra               | L  | PET   |
++----+-----------+---------------------+----+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [campus]>
